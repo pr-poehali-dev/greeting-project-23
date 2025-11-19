@@ -59,7 +59,7 @@ const combines: Combine[] = [
     rank: 3,
     name: 'Case IH Axial-Flow 9250',
     manufacturer: 'Case IH',
-    image: 'https://cdn.poehali.dev/projects/ee11ee8e-1f9a-44dd-b331-f2270ec54b98/files/d4bb4564-c955-41df-b1fd-2ad0f7ed7125.jpg',
+    image: 'https://cdn.poehali.dev/files/36dfa9fb-a572-40bc-9b1c-1b1ed2236e4a.jpg',
     price: '21 200 000 ₽',
     specs: {
       power: '730 л.с.',
