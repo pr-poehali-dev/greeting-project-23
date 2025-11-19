@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -104,6 +105,15 @@ const combines: Combine[] = [
 ];
 
 const Index = () => {
+  const combineRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
+
+  const scrollToNext = (currentId: number) => {
+    const nextId = currentId + 1;
+    if (nextId <= combines.length) {
+      combineRefs.current[nextId]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
@@ -123,7 +133,11 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-6 py-16">
         <div className="space-y-8">
           {combines.map((combine) => (
-            <Card key={combine.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              key={combine.id} 
+              ref={(el) => { combineRefs.current[combine.id] = el; }}
+              className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
               <div className="grid md:grid-cols-2 gap-8 p-8">
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -207,10 +221,17 @@ const Index = () => {
                   </div>
 
                   <div className="flex gap-3 pt-4">
-                    <Button className="flex-1">
-                      <Icon name="Phone" size={18} className="mr-2" />
-                      Связаться с дилером
-                    </Button>
+                    {combine.rank < combines.length ? (
+                      <Button className="flex-1" onClick={() => scrollToNext(combine.id)}>
+                        <span>Далее</span>
+                        <Icon name="ChevronDown" size={18} className="ml-2" />
+                      </Button>
+                    ) : (
+                      <Button className="flex-1" onClick={() => combineRefs.current[1]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                        <Icon name="ArrowUp" size={18} className="mr-2" />
+                        В начало
+                      </Button>
+                    )}
                     <Button variant="outline">
                       <Icon name="Info" size={18} className="mr-2" />
                       Подробнее
