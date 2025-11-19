@@ -43,7 +43,7 @@ const combines: Combine[] = [
     rank: 2,
     name: 'John Deere S790',
     manufacturer: 'John Deere',
-    image: 'https://cdn.poehali.dev/projects/ee11ee8e-1f9a-44dd-b331-f2270ec54b98/files/9b027051-bdf9-4b59-9f1d-5668d323bc82.jpg',
+    image: 'https://cdn.poehali.dev/files/081aeef9-f3ba-4d41-be7d-e340a44e489d.jpg',
     price: '22 800 000 ₽',
     specs: {
       power: '765 л.с.',
