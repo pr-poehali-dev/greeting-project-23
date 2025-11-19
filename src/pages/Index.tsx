@@ -27,7 +27,7 @@ const combines: Combine[] = [
     rank: 1,
     name: 'CLAAS LEXION 8900',
     manufacturer: 'CLAAS',
-    image: 'https://cdn.poehali.dev/projects/ee11ee8e-1f9a-44dd-b331-f2270ec54b98/files/fc568fb2-3215-4620-8365-0a8c7285fddf.jpg',
+    image: 'https://cdn.poehali.dev/files/e9186d5a-6c31-40a3-857d-01805e536dec.jpg',
     price: '24 500 000 ₽',
     specs: {
       power: '790 л.с.',
