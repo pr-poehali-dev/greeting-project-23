@@ -114,6 +114,13 @@ const Index = () => {
     }
   };
 
+  const scrollToPrevious = (currentId: number) => {
+    const prevId = currentId - 1;
+    if (prevId >= 1) {
+      combineRefs.current[prevId]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
@@ -232,10 +239,17 @@ const Index = () => {
                         В начало
                       </Button>
                     )}
-                    <Button variant="outline">
-                      <Icon name="Info" size={18} className="mr-2" />
-                      Подробнее
-                    </Button>
+                    {combine.rank > 1 ? (
+                      <Button variant="outline" onClick={() => scrollToPrevious(combine.id)}>
+                        <Icon name="ChevronUp" size={18} className="mr-2" />
+                        Вернуться
+                      </Button>
+                    ) : (
+                      <Button variant="outline" onClick={() => combineRefs.current[combines.length]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                        <Icon name="ArrowDown" size={18} className="mr-2" />
+                        В конец
+                      </Button>
+                    )}
                   </div>
                 </div>
 
